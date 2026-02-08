@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://rei8ggdgbjmr"]
+
+[ext_resource type="PackedScene" uid="uid://55utxful2nig" path="res://Scenes/cube_map.tscn" id="1_3mqfk"]
+[ext_resource type="PackedScene" uid="uid://c20cv33e3k838" path="res://Scenes/object.tscn" id="2_iixi8"]
+[ext_resource type="PackedScene" uid="uid://cngss6tgiyywp" path="res://Scenes/button.tscn" id="3_cyadu"]
+[ext_resource type="PackedScene" uid="uid://jtfmsx51tkvh" path="res://Scenes/door.tscn" id="5_xgxfi"]
+
+[node name="level1" type="Node3D" unique_id=581165385]
+
+[node name="CubeMap" parent="." unique_id=1238338204 instance=ExtResource("1_3mqfk")]
+
+[node name="Object" parent="." unique_id=1558132844 instance=ExtResource("2_iixi8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 7.5, -1.5)
+constant_force = Vector3(0, 1, 0)
+
+[node name="Button" parent="." unique_id=630836109 instance=ExtResource("3_cyadu")]
+transform = Transform3D(1, 0, 0, 0, 0.1, 0, 0, 0, 1, -0.5, 0.1, -1.5)
+
+[node name="Door" parent="." unique_id=760546688 instance=ExtResource("5_xgxfi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34089887, 1.1629158, -3.1137524)

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bagj5ky1v8vc4"]
+
+[ext_resource type="PackedScene" uid="uid://55utxful2nig" path="res://Scenes/cube_map.tscn" id="1_ucdhh"]
+[ext_resource type="PackedScene" uid="uid://dmr7ch76uqyfj" path="res://Scenes/player.tscn" id="2_oylv5"]
+[ext_resource type="PackedScene" uid="uid://c20cv33e3k838" path="res://Scenes/object.tscn" id="3_oylv5"]
+
+[node name="level2" type="Node3D" unique_id=618707431]
+
+[node name="CubeMap" parent="." unique_id=1238338204 instance=ExtResource("1_ucdhh")]
+
+[node name="Player" parent="." unique_id=877847625 instance=ExtResource("2_oylv5")]
+
+[node name="Object" parent="." unique_id=1558132844 instance=ExtResource("3_oylv5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.76549137, 0.52, 1.749564)
+constant_force = Vector3(0, -1, 0)

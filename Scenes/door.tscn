@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://jtfmsx51tkvh"]
+
+[ext_resource type="Script" uid="uid://b2l7wkvcxlao1" path="res://Scripts/door.gd" id="1_w6aom"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w6aom"]
+emission_enabled = true
+emission = Color(18.892157, 18.892157, 18.892157, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_w6aom"]
+material = SubResource("StandardMaterial3D_w6aom")
+size = Vector3(1, 2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v6xrn"]
+size = Vector3(1, 2, 0.2)
+
+[node name="Door" type="MeshInstance3D" unique_id=760546688]
+visible = false
+mesh = SubResource("BoxMesh_w6aom")
+script = ExtResource("1_w6aom")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=500554527]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1416125137]
+shape = SubResource("BoxShape3D_v6xrn")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

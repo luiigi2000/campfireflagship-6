@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://55utxful2nig"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h0w43"]
+cull_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_m3x5o"]
+material = SubResource("StandardMaterial3D_h0w43")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h0w43"]
+size = Vector3(2, 0.01, 2)
+
+[node name="CubeMap" type="Node3D" unique_id=1238338204]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Wall" type="StaticBody3D" parent="." unique_id=654169771]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall" unique_id=1068779721]
+mesh = SubResource("PlaneMesh_m3x5o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall" unique_id=1018144604]
+shape = SubResource("BoxShape3D_h0w43")
+
+[node name="Wall2" type="StaticBody3D" parent="." unique_id=593058858]
+transform = Transform3D(-8.742278e-08, -2, 0, 2, -8.742278e-08, 0, 0, 0, 2, -2, 2, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall2" unique_id=991038855]
+mesh = SubResource("PlaneMesh_m3x5o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall2" unique_id=424835917]
+shape = SubResource("BoxShape3D_h0w43")
+
+[node name="Wall3" type="StaticBody3D" parent="." unique_id=560652077]
+transform = Transform3D(-8.742278e-08, -2, 0, 2, -8.742278e-08, 0, 0, 0, 2, 2, 2, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall3" unique_id=937735720]
+mesh = SubResource("PlaneMesh_m3x5o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall3" unique_id=1815601496]
+shape = SubResource("BoxShape3D_h0w43")
+
+[node name="Wall4" type="StaticBody3D" parent="." unique_id=1240253021]
+transform = Transform3D(2, 0, 0, 0, -8.742278e-08, -2, 0, 2, -8.742278e-08, 0, 2, 2)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall4" unique_id=1137318560]
+mesh = SubResource("PlaneMesh_m3x5o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall4" unique_id=1268523602]
+shape = SubResource("BoxShape3D_h0w43")
+
+[node name="Wall5" type="StaticBody3D" parent="." unique_id=1646376647]
+transform = Transform3D(2, 0, 0, 0, -8.742278e-08, -2, 0, 2, -8.742278e-08, 0, 2, -2)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall5" unique_id=2039956107]
+mesh = SubResource("PlaneMesh_m3x5o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall5" unique_id=852411367]
+shape = SubResource("BoxShape3D_h0w43")
+
+[node name="Wall6" type="StaticBody3D" parent="." unique_id=251100440]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 4, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall6" unique_id=1929891055]
+mesh = SubResource("PlaneMesh_m3x5o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall6" unique_id=785156108]
+shape = SubResource("BoxShape3D_h0w43")
