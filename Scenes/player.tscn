@@ -16,3 +16,6 @@ shape = SubResource("CapsuleShape3D_onrkg")
 
 [node name="Camera3D" type="Camera3D" parent="H_Joint/V_Joint" unique_id=1325601758]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52196383, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="H_Joint/V_Joint/Camera3D" unique_id=581249932]
+transform = Transform3D(2, 0, 0, 0, -8.742278e-08, -2, 0, 2, -8.742278e-08, 0, 0, 0)

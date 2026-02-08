@@ -6,6 +6,10 @@ const JUMP_VELOCITY = 4.5
 @onready var h_joint := $H_Joint
 @onready var v_joint := $H_Joint/V_Joint
 @export var mouse_sens := 0.15
+@onready var ray_cast = $H_Joint/V_Joint/Camera3D/RayCast3D
+var object_being_carried
+var object_carried_original_force
+var is_carrying = false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -26,7 +30,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-	
+		
+	move_object()
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:
@@ -35,3 +40,22 @@ func _input(event: InputEvent) -> void:
 		h_joint.rotate_y(deg_to_rad(-event.relative.x * mouse_sens))
 		v_joint.rotate_x(deg_to_rad(-event.relative.y * mouse_sens))
 		v_joint.rotation.x = clamp(v_joint.rotation.x,deg_to_rad(-60),deg_to_rad(60))
+	if event is InputEventKey:
+		if Input.is_key_pressed(KEY_E):
+			pick_up_object()
+				
+			
+	
+func pick_up_object():
+	if is_instance_valid(object_being_carried):
+		object_being_carried.constant_force = object_carried_original_force
+		object_being_carried = null
+	elif ray_cast.is_colliding() and ray_cast.get_collider().name == "Object":
+		object_being_carried = ray_cast.get_collider()
+		object_carried_original_force = object_being_carried.constant_force
+		object_being_carried.constant_force = Vector3(0,0,0)
+		
+func move_object():
+	if is_instance_valid(object_being_carried):
+		var camera = $H_Joint/V_Joint/Camera3D
+		object_being_carried.global_position = object_being_carried.global_position.move_toward(camera.global_position -camera.global_transform.basis.z * 2, .1)
