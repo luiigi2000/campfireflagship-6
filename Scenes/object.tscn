@@ -6,13 +6,14 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l2ofb"]
 
-[node name="Object" type="RigidBody3D" unique_id=1558132844]
+[node name="Object" type="RigidBody3D" unique_id=1558132844 groups=["Objects"]]
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 mass = 0.1
 gravity_scale = 0.0
 script = ExtResource("1_ufb5h")
+metadata/Type = "Object"
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=1432440612]
 mesh = SubResource("BoxMesh_rfk7t")

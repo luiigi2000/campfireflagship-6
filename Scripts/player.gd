@@ -40,8 +40,8 @@ func _input(event: InputEvent) -> void:
 		h_joint.rotate_y(deg_to_rad(-event.relative.x * mouse_sens))
 		v_joint.rotate_x(deg_to_rad(-event.relative.y * mouse_sens))
 		v_joint.rotation.x = clamp(v_joint.rotation.x,deg_to_rad(-60),deg_to_rad(60))
-	if event is InputEventKey:
-		if Input.is_key_pressed(KEY_E):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT:
 			pick_up_object()
 				
 			
@@ -50,7 +50,7 @@ func pick_up_object():
 	if is_instance_valid(object_being_carried):
 		object_being_carried.constant_force = object_carried_original_force
 		object_being_carried = null
-	elif ray_cast.is_colliding() and ray_cast.get_collider().name == "Object":
+	elif ray_cast.is_colliding() and ray_cast.get_collider().get_meta("Type") == "Object" and ray_cast.get_collider().has_meta("Type"):
 		object_being_carried = ray_cast.get_collider()
 		object_carried_original_force = object_being_carried.constant_force
 		object_being_carried.constant_force = Vector3(0,0,0)
