@@ -9,6 +9,7 @@ albedo_color = Color(1, 0, 0, 1)
 material = SubResource("StandardMaterial3D_0vvm8")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_n4tde"]
+radius = 0.49169922
 
 [node name="Button" type="MeshInstance3D" unique_id=630836109 groups=["WinConditionButtons"]]
 transform = Transform3D(1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0)

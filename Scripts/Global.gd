@@ -1,6 +1,6 @@
 extends Node
 
-enum levels {LEVEL1, LEVEL2}
+enum levels {LEVEL1, LEVEL2, LEVEL3}
 var state = levels.LEVEL1
 var level_selected
 
@@ -15,6 +15,8 @@ func change_level():
 		level_selected = preload("res://Scenes/Levels/level_1.tscn").instantiate()
 	elif state == levels.LEVEL2:
 		level_selected = preload("res://Scenes/Levels/level_2.tscn").instantiate()
+	elif state == levels.LEVEL3:
+		level_selected = preload("res://Scenes/Levels/level_3.tscn").instantiate()
 	add_child(level_selected)
 	state+=1
 	

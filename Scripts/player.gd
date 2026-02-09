@@ -50,7 +50,7 @@ func pick_up_object():
 	if is_instance_valid(object_being_carried):
 		object_being_carried.constant_force = object_carried_original_force
 		object_being_carried = null
-	elif ray_cast.is_colliding() and ray_cast.get_collider().get_meta("Type") == "Object" and ray_cast.get_collider().has_meta("Type"):
+	elif ray_cast.is_colliding() and ray_cast.get_collider().is_in_group("Objects"):
 		object_being_carried = ray_cast.get_collider()
 		object_carried_original_force = object_being_carried.constant_force
 		object_being_carried.constant_force = Vector3(0,0,0)
