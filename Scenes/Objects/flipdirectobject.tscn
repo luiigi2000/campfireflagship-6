@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c5ntdlyfxma78"]
+
+[ext_resource type="Script" uid="uid://4q6xa8ocvlig" path="res://Scripts/object.gd" id="1_nedsm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_smy68"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_umiqi"]
+material = SubResource("StandardMaterial3D_smy68")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7i5g6"]
+
+[node name="FlipDirectObject" type="RigidBody3D" unique_id=306293745 groups=["FlipDirectObj", "Objects"]]
+mass = 0.1
+gravity_scale = 0.0
+script = ExtResource("1_nedsm")
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=288126512 groups=["FlipDirectObj", "Objects"]]
+mesh = SubResource("BoxMesh_umiqi")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=1974712770]
+shape = SubResource("BoxShape3D_7i5g6")

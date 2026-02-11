@@ -17,7 +17,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and not object_being_carried:
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -43,19 +43,22 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			pick_up_object()
-				
-			
 	
 func pick_up_object():
 	if is_instance_valid(object_being_carried):
-		object_being_carried.constant_force = object_carried_original_force
+		object_being_carried.constant_force = object_being_carried.get_meta("OrigForce")
+		object_being_carried.set_meta("Carrying",false)
 		object_being_carried = null
 	elif ray_cast.is_colliding() and ray_cast.get_collider().is_in_group("Objects"):
 		object_being_carried = ray_cast.get_collider()
+		object_being_carried.set_meta("Carrying",true)
 		object_carried_original_force = object_being_carried.constant_force
+		object_being_carried.set_meta("OrigForce",object_carried_original_force)
 		object_being_carried.constant_force = Vector3(0,0,0)
 		
 func move_object():
 	if is_instance_valid(object_being_carried):
 		var camera = $H_Joint/V_Joint/Camera3D
 		object_being_carried.global_position = object_being_carried.global_position.move_toward(camera.global_position -camera.global_transform.basis.z * 2, .1)
+		
+	

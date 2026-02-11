@@ -1,7 +1,6 @@
 extends MeshInstance3D
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	print(body.get_groups())
 	if body.is_in_group("Objects"):
 		set_meta("Pressed", true)
 		check_win_condition()
